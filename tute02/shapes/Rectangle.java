@@ -17,6 +17,7 @@ public class Rectangle extends Shape {
 
     public Rectangle(String name, int width, int height) {
         this(name); // => Calling constructor `Rectangle(String color)`
+        this.color = "hello";
         this.width = width;
         this.height = height;
         System.out.println("Inside Rectangle constructor with three arguments");

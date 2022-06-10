@@ -7,10 +7,14 @@ package shapes;
  */
 
 public class Shape {
-    public String color;
+    protected String color;
 
     public Shape(String color) {
         System.out.println("Inside Shape constructor");
         this.color = color;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
