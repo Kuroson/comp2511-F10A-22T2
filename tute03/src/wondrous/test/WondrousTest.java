@@ -1,5 +1,7 @@
 package wondrous.test;
 
+import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -17,5 +19,29 @@ public class WondrousTest {
         List<Integer> expected = new ArrayList<Integer>(Arrays.asList(3, 10, 5, 16, 8, 4, 2, 1));
 
         assertEquals(expected, w.wondrous(3));
+    }
+
+    @Test
+    public void testOne() {
+        Wondrous w = new Wondrous();
+        List<Integer> expected = new ArrayList<Integer>(Arrays.asList(1));
+        assertEquals(expected, w.wondrous(1));
+    }
+
+    @Test
+    public void testInvalid() {
+        Wondrous w = new Wondrous();
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            w.wondrous(0);
+        });
+    }
+
+    @Test
+    public void testDontThrow() {
+        Wondrous w = new Wondrous();
+        assertDoesNotThrow(() -> {
+            w.wondrous(-1);
+        });
     }
 }
