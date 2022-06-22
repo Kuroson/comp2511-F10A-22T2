@@ -6,21 +6,36 @@ import java.util.List;
 // If the current term is even, the next term is half the current term.
 // If the current term is odd, the next term is three times the current term, plus 1.
 public class Wondrous {
-    private final int MY_MAGIC_NUMBER = 42;
-
     public List<Integer> wondrous(int start) {
         int current = start;
         List<Integer> sequence = new ArrayList<Integer>();
 
-        while (current != 1) {
+        if (start < 1) {
+            throw new IllegalArgumentException("wondrous start must be >= 1");
+        }
+
+        while (true) {
             sequence.add(current);
-            if (current % 2 == 0) {
+            if (current == 1) {
+                break;
+            } else if (current % 2 == 0) {
+                // Even
                 current /= 2;
             } else {
+                // odd
                 current = (current * 3) + 1;
             }
         }
-
         return sequence;
+    }
+
+    public static void main(String[] args) {
+        Wondrous w = new Wondrous();
+        try {
+            w.wondrous(-1);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println("Didn't crash");
     }
 }
