@@ -36,17 +36,23 @@ public class Viewing {
         return nextVideo.getName();
     }
 
+    // Method forwarding
     public String lock() {
-        return state.onLock();
+        // if (this.state == "Locked") {
+        //     // Do this
+        // } else if (this.state == "Playing") {
+        //     // do something else
+        // }
+        return this.state.onLock();
     }
 
     public String play() {
-        return state.onPlay();
+        return this.state.onPlay();
     }
 
     public String next() {
         this.video = nextVideo;
-        return state.onNext();
+        return this.state.onNext();
     }
 
     public static void main(String[] args) {

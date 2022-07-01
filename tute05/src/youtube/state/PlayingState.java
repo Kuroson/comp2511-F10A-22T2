@@ -9,16 +9,20 @@ public class PlayingState extends ViewingState {
 
     @Override
     public String onLock() {
-        return null;
+        // Stop playing
+        this.getViewing().setPlaying(false);
+        this.getViewing().changeState(new LockedState(this.getViewing()));
+        return "Locked";
     }
 
     @Override
     public String onPlay() {
-        return null;
+        return "Paused";
     }
 
     @Override
     public String onNext() {
-        return null;
+        this.getViewing().getNextVideo();
+        return "Next video";
     }
 }

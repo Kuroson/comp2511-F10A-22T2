@@ -9,16 +9,19 @@ public class ReadyState extends ViewingState {
 
     @Override
     public String onLock() {
-        return null;
+        this.getViewing().changeState(new LockedState(this.getViewing()));
+        return "Locked";
     }
 
     @Override
     public String onPlay() {
+        this.getViewing().startPlayback();
+        this.getViewing().changeState(new PlayingState(this.getViewing()));
         return null;
     }
 
     @Override
     public String onNext() {
-        return null;
+        return "Error: Locked";
     }
 }
