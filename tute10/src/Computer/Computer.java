@@ -18,4 +18,12 @@ public class Computer implements ComputerComponent {
     public int getMemory() {
         return memory;
     }
+
+    public void accept(ComputerVisitor visitor) {
+        if (visitor.isValidated()) {
+            visitor.visit(this);
+        } else {
+            System.out.println("Not validated.");
+        }
+    }
 }

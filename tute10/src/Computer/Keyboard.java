@@ -22,4 +22,7 @@ public class Keyboard implements ComputerComponent {
         return name;
     }
 
+    public void accept(ComputerVisitor visitor) {
+        visitor.visit(this);
+    }
 }
